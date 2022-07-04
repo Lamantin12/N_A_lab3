@@ -1,6 +1,6 @@
 from numpy import zeros, matrix, copy, dot
 
-
+##############################################################################################################################################
 class lu_decomposion:
     def __init__(self, matrix):
         self.origin_matrix = matrix
@@ -112,7 +112,7 @@ class lu_decomposion:
             else:
                 
                 print('Этот метод еще в разработке')
-                
+
         return self.solution
 
     def get_l_from_lu(self):
@@ -153,3 +153,7 @@ class lu_decomposion:
 
 def swap_col(mtrx, start_index, last_index):
     mtrx[:, [start_index, last_index]] = mtrx[:, [last_index, start_index]]
+
+
+##############################################################################################################################################
+
