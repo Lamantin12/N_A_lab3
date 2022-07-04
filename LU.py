@@ -14,14 +14,18 @@ class lu_decomposion:
         self.partial = kwargs['partial_pivoting']
         if self.partial:
             if self.change_origin:
-                pass
+
+                print('Этот метод еще в разработке')
+
             else:
                 self.lu_with_partial_no_change_origin()
         else:
             if self.change_origin:
                 self.lu_without_partial_change_origin()
             else:
-                pass
+                
+                print('Этот метод еще в разработке')
+
 
     def lu_without_partial_change_origin(self):
         n = self.origin_matrix.shape[0]
@@ -31,7 +35,7 @@ class lu_decomposion:
                 self.origin_matrix[j, i:] = self.origin_matrix[j, i:] - self.origin_matrix[i, i:] * t
                 self.origin_matrix[j, i] = t
         self.lu = copy(self.origin_matrix)
-        return 'method fitted, origin matrix changed'
+        return
 
     def lu_with_partial_no_change_origin(self):
         n = self.origin_matrix.shape[0]
@@ -68,14 +72,15 @@ class lu_decomposion:
                 u[j, i:] = u[j, i:] - u[i, i:] * t
         for i in range(n - 1, -1, -1):
             p = dot(p, p_temp_in_list[i])
-        p = p / 4
+        p = p / (len(p_temp_in_list) - 1)
         self.lu = (l, u, p)
-        print('method fitted, created a tuple (L, U, P)')
 
     def solve(self, vector):
         if self.partial:
             if self.change_origin:
-                pass
+               
+               print('Этот метод еще в разработке')
+
             else:
                 n = vector.shape[0]
                 l = self.lu[0]
@@ -105,7 +110,9 @@ class lu_decomposion:
                 for i in range(n - 1, -1, -1):
                     self.solution[i] = (y[i] - u[i, i:] * self.solution[i:]) / u[i][i]
             else:
-                pass
+                
+                print('Этот метод еще в разработке')
+                
         return self.solution
 
     def get_l_from_lu(self):
